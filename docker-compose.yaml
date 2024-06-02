@@ -13,7 +13,7 @@ services:
       - DB_HOST=django_mysql
       - DB_NAME=django_db
       - DB_USER=root
-      - DB_PASS=''
+      # - DB_PASS=''
       - DEBUG=1
     depends_on:
       - django_mysql
