@@ -26,6 +26,12 @@ services:
       MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
     volumes:
       - ./data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      # interval: 1m30s
+      timeout: 5s
+      retries: 160
+      # start_period: 30s
 
 volumes:
   data:
