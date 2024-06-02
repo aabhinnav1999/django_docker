@@ -16,12 +16,13 @@ services:
       # - DB_PASS=''
       - DEBUG=1
     depends_on:
-      - django_mysql
-    healthcheck:
-      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      django_mysql:
+        condition: service_healthy
+    # healthcheck:
+    #   test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
       # interval: 1m30s
-      timeout: 5s
-      retries: 160
+      # timeout: 5s
+      # retries: 160
       # start_period: 30s
 
   django_mysql:
