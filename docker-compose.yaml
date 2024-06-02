@@ -13,7 +13,7 @@ services:
       - django_mysql
 
   django_mysql:
-    image: mysql
+    image: mysql:8.4
     container_name: django_mysql_container
     environment:
       MYSQL_DATABASE: 'django_db'
