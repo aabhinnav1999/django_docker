@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'django.contrib.staticfiles'
 ]
 
 MIDDLEWARE = [
@@ -84,10 +84,10 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 # DATABASES = {
 #         'default': {
 #         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'django_db',
+#         'NAME': 'django_docker',
 #         'USER': 'root',
-#         'PASSWORD': '',
-#         'HOST': 'django_mysql_container',
+#         'PASSWORD': 'root',
+#         'HOST': '127.0.0.1',
 #         'PORT': '3306',
 #             }
 #         }
