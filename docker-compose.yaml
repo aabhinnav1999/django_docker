@@ -6,6 +6,8 @@ services:
     container_name: django_nginx
     ports:
       - 80:80
+    volumes:
+      - ./django/static_folder:/home/myapp/static
     depends_on:
       - django_app
 
