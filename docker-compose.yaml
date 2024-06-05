@@ -16,10 +16,10 @@ services:
     image: django_app:1.0
     volumes:
       - ./django:/django_folder
-    # expose:
-    #   - 8000
-    ports:
-      - 8000:8000
+    expose:
+      - 8000
+    # ports:
+    #   - 8000:8000
     container_name: django_app_container
     # command: > 
     #   sh -c " python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
