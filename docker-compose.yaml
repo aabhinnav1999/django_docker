@@ -1,13 +1,13 @@
 version: '3.9'
 services:
   nginx:
-  build: 
-    context: ./nginx
-  container_name: django_nginx
-  ports:
-    - 80:80
-  depends_on:
-    - django_app
+    build: 
+      context: ./nginx
+    container_name: django_nginx
+    ports:
+      - 80:80
+    depends_on:
+      - django_app
 
   django_app:
     build: ./django
