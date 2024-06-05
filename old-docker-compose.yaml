@@ -1,16 +1,7 @@
 version: '3.9'
 services:
-  nginx:
-  build: 
-    context: ./nginx
-  container_name: django_nginx
-  ports:
-    - 80:80
-  depends_on:
-    - django_app
-
   django_app:
-    build: ./django
+    build: .
     image: django_app:1.0
     volumes:
       - ./django:/django_folder
@@ -19,9 +10,9 @@ services:
     ports:
       - 8000:8000
     container_name: django_app_container
-    # command: > 
-    #   sh -c " python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
-    command: gunicorn myproject.wsgi:application --bind 0.0.0.0:8000
+    command: > 
+      sh -c " python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    # command: gunicorn myproject.wsgi:application --bind 0.0.0.0:8000
     environment:
       - DB_HOST=django_mysql_container
       - DB_NAME=django_db
@@ -31,6 +22,14 @@ services:
     depends_on:
       django_mysql:
         condition: service_healthy
+
+  # nginx:
+  #   build: 
+  #     context: ./nginx/
+  #   ports:
+  #     - 80:80
+  #   volumes:
+  #     - ./nginx/conf.d/:/etc/nginx/conf.d/
 
   django_mysql:
     image: mysql:8.4
