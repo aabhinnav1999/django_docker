@@ -1,7 +1,7 @@
 version: '3.9'
 services:
   django_app:
-    build: ./docker
+    build: .
     image: django_app:1.0
     volumes:
       - ./django:/django_folder
