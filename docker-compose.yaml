@@ -15,7 +15,7 @@ services:
     build: ./django
     image: django_app:1.0
     volumes:
-      - ./django:/django_folder
+      - ./django/static_folder:/django_folder
     expose:
       - 8000
     # ports:
@@ -51,3 +51,4 @@ services:
 
 volumes:
   data:
+  django/static_folder:
