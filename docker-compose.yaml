@@ -7,15 +7,16 @@ services:
     ports:
       - 80:80
     volumes:
-      - ./django/static_folder:/home/myapp/static
+      - static_folder:/home/myapp/static
     depends_on:
       - django_app
 
   django_app:
-    build: ./django
+    build: 
+      context: ./django
     image: django_app:1.0
     volumes:
-      - ./django/static_folder:/django_folder
+      - static_folder:/django_folder
     expose:
       - 8000
     # ports:
@@ -51,4 +52,4 @@ services:
 
 volumes:
   data:
-  django/static_folder:
+  static_folder:
