@@ -10,3 +10,6 @@ class office(models.Model):
     salary=models.IntegerField()
     reports_to=models.IntegerField()
     office_id=models.IntegerField()
+
+# class images(models.Model):
+#     user_pictures=models.ImageField()
